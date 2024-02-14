@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.10)
 set(CMAKE_CXX_STANDARD 17)
 
+project(GCLF-all)
+
+
 if (MSVC)
   add_compile_definitions(_USE_MATH_DEFINES NOMINMAX)
 endif()

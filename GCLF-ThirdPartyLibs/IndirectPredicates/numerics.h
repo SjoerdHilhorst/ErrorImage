@@ -71,7 +71,12 @@ inline void setFPUModeToRoundNEAR() { fesetround(FE_TONEAREST); }
 #endif
 
 #ifdef USE_SIMD_INSTRUCTIONS
-#include <emmintrin.h>
+
+#ifdef __aarch64__
+    #include "sse2neon.h" // https://developer.arm.com/documentation/102581/0200/Porting-intrinsics
+#else
+	#include <emmintrin.h>
+#endif
 
 //inline void setFPUModeToRoundUP() { _MM_SET_ROUNDING_MODE(_MM_ROUND_UP); }
 //inline void setFPUModeToRoundNEAR() { _MM_SET_ROUNDING_MODE(_MM_ROUND_NEAREST); }

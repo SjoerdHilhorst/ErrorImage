@@ -14,3 +14,10 @@
     * Given an linear error-bounded triangulation, simplify it (see example/linear_simplify.bat).
     * Given an linear error-bounded triangulation, make it curved and simplify it (see example/curved_simplify.bat).
 3. The color function and other parameters can be changed in "config.json".
+
+
+### How to compile
+
+1. create build directory ```mkdir build && cd build```
+2. run cmake ```cmake ../```
+3. run make ```cmake --build .```

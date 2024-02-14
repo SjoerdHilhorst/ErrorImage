@@ -19,7 +19,7 @@ FaceColor CalcColorOnFace<Simplifier>::operator()(const std::vector<Vec2i>& pixe
   if (pixel_coords.empty())
     return FaceColor();
 
-  typedef CalcErrorOnFace<Simplifier>::Type ErrorType;
+  typedef typename CalcErrorOnFace<Simplifier>::Type ErrorType;
 
   auto& calc_error_on_face = simplifier->behavior.calc_error_on_face;
 

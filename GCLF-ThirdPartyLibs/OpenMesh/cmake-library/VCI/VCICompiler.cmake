@@ -186,7 +186,7 @@ if (UNIX)
   IF ( "C" IN_LIST languages  )
     # Add the debug flags
     foreach( flag ${ADDITIONAL_C_FLAGS} ${ADDITIONAL_C_DEBUG_FLAGS} )
-      list (FIND ${CMAKE_C_FLAGS_DEBUG} ${flag} _index)
+      list (FIND "${CMAKE_C_FLAGS_DEBUG}" "${flag}" _index)
       if (${_index} EQUAL -1)
         set( CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} ${flag} ")
       endif()
@@ -194,7 +194,7 @@ if (UNIX)
 
     # Add the release flags
     foreach( flag ${ADDITIONAL_C_FLAGS} ${ADDITIONAL_C_RELEASE_FLAGS} )
-        list (FIND ${CMAKE_C_FLAGS_RELEASE} ${flag} _index)
+        list (FIND "${CMAKE_C_FLAGS_RELEASE}" "${flag}" _index)
       if (${_index} EQUAL -1)
         set( CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} ${flag} ")
       endif()
@@ -202,7 +202,7 @@ if (UNIX)
 
     # Add the release with debug info flags
     foreach( flag ${ADDITIONAL_C_FLAGS} ${ADDITIONAL_C_RELWITHDEBINFO_FLAGS} )
-      list (FIND ${CMAKE_C_FLAGS_RELWITHDEBINFO} ${flag} _index)
+      list (FIND "${CMAKE_C_FLAGS_RELWITHDEBINFO}" "${flag}" _index)
       if (${_index} EQUAL -1)
         set( CMAKE_C_FLAGS_RELWITHDEBINFO "${CMAKE_C_FLAGS_RELWITHDEBINFO} ${flag} ")
       endif()

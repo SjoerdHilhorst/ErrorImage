@@ -5,7 +5,26 @@ project(GCLF-ImageTriSimp)
 
 # OpenMP
 if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC" OR
-    "${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+    "${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR
+    "${CMAKE_CXX_COMPILER_ID}" STREQUAL "AppleClang")
+
+    if(CMAKE_C_COMPILER_ID MATCHES "Clang")
+        set(OpenMP_C "${CMAKE_C_COMPILER}")
+        set(OpenMP_C_FLAGS "-Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -I/opt/homebrew/opt/libomp/include")
+        set(OpenMP_C_LIB_NAMES "libomp" "libgomp" "libiomp5")
+        set(OpenMP_libomp_LIBRARY ${OpenMP_C_LIB_NAMES})
+        set(OpenMP_libgomp_LIBRARY ${OpenMP_C_LIB_NAMES})
+        set(OpenMP_libiomp5_LIBRARY ${OpenMP_C_LIB_NAMES})
+    endif()
+    if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+      set(OpenMP_CXX "${CMAKE_CXX_COMPILER}")
+      set(OpenMP_CXX_FLAGS "-Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -I/opt/homebrew/opt/libomp/include")
+      set(OpenMP_CXX_LIB_NAMES "libomp" "libgomp" "libiomp5")
+      set(OpenMP_libomp_LIBRARY ${OpenMP_CXX_LIB_NAMES})
+      set(OpenMP_libgomp_LIBRARY ${OpenMP_CXX_LIB_NAMES})
+      set(OpenMP_libiomp5_LIBRARY ${OpenMP_CXX_LIB_NAMES})
+    endif()
+
     find_package(OpenMP)
     if(NOT OPENMP_FOUND)
         message(FATAL_ERROR "OpenMP Not Found!")
@@ -55,7 +74,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 )
 target_link_libraries(${PROJECT_NAME} PUBLIC
     GCLF-Geometry
-    OpenMP::OpenMP_CXX
+    # OpenMP::OpenMP_CXX
     HLBFGS
     ${Boost_LIBRARIES}
     # $<LINK_ONLY:MKL::MKL>
@@ -92,6 +111,9 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
+
+
+set(CMAKE_PREFIX_PATH "/opt/homebrew/Cellar/qt@5/5.15.12/")
 find_package(Qt5 REQUIRED COMPONENTS Core Widgets Gui)
 get_target_property(_qmake_executable Qt5::qmake IMPORTED_LOCATION)
 get_filename_component(_qt_bin_dir "${_qmake_executable}" DIRECTORY)
@@ -107,8 +129,9 @@ target_link_libraries(exe${PROJECT_NAME} PUBLIC
     Qt5::Widgets
     Qt5::Gui
 )
+
 target_link_options(exe${PROJECT_NAME}  PUBLIC
-    "/DEBUG"
+    "-g"
 )
 
 #if(WIN32)

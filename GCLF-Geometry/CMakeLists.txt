@@ -15,12 +15,34 @@ file(GLOB SRCS
 
 # OpenMP
 if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC" OR
-    "${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
-    find_package(OpenMP)
+    "${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR
+    "${CMAKE_CXX_COMPILER_ID}" STREQUAL "AppleClang")
+
+    if(CMAKE_C_COMPILER_ID MATCHES "Clang")
+        set(OpenMP_C "${CMAKE_C_COMPILER}")
+        set(OpenMP_C_FLAGS "--Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -I/opt/homebrew/opt/libomp/include")
+        set(OpenMP_C_LIB_NAMES "libomp" "libgomp" "libiomp5")
+        set(OpenMP_libomp_LIBRARY ${OpenMP_C_LIB_NAMES})
+        set(OpenMP_libgomp_LIBRARY ${OpenMP_C_LIB_NAMES})
+        set(OpenMP_libiomp5_LIBRARY ${OpenMP_C_LIB_NAMES})
+    endif()
+    if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+      set(OpenMP_CXX "${CMAKE_CXX_COMPILER}")
+      set(OpenMP_CXX_FLAGS "-Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument -I/opt/homebrew/opt/libomp/include")
+      set(OpenMP_CXX_LIB_NAMES "libomp" "libgomp" "libiomp5")
+      set(OpenMP_libomp_LIBRARY ${OpenMP_CXX_LIB_NAMES})
+      set(OpenMP_libgomp_LIBRARY ${OpenMP_CXX_LIB_NAMES})
+      set(OpenMP_libiomp5_LIBRARY ${OpenMP_CXX_LIB_NAMES})
+    endif()
+    
+    find_package(OpenMP REQUIRED)
     if(NOT OPENMP_FOUND)
         message(FATAL_ERROR "OpenMP Not Found!")
     endif()
 endif()
+
+message("joeoje" ${EIGEN3_INCLUDE_DIR})
+
 
 # add the library
 add_library(${PROJECT_NAME} STATIC
@@ -36,7 +58,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 # link libraries
 target_link_libraries(${PROJECT_NAME} PUBLIC
   indirectPredicates
-  OpenMP::OpenMP_CXX
+  # OpenMP::OpenMP_CXX
   GCLF-Utils
 )
 

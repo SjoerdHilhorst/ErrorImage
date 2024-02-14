@@ -1,0 +1,10 @@
+[13:58:46][user][info]Initial mesh: v 3418, e 10195, f 6778
+[13:58:46][user][info]Initial root_mean_lp_error 11.810962935949345
+[13:58:46][user][info]flip 1419 / 10195 edges.
+[13:58:46][user][info]Final mesh: vertices 3418 edges 10195 faces 6778
+[13:58:46][user][info]Final root_mean_lp_error 11.424275166173425
+[13:59:10][user][info]relocate 2650 vertices.
+[13:59:10][user][info]Final mesh: vertices 3418 edges 10195 faces 6778
+[13:59:10][user][info]Final root_mean_lp_error 9.065039139624435
+[13:59:10][user][info]Final mesh: vertices 3418 edges 10195 faces 6778
+[13:59:10][user][info]Final root_mean_lp_error 9.065039139624435

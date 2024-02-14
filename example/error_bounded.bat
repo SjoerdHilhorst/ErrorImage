@@ -1,2 +1,0 @@
-%%     executable,               config,         input image,  input mesh,    output directory,  error bound,  mode
-start ./exeGCLF-ImageTriSimp.exe "./config.json" "./cat.png" "./cat_init.obj" "./"               "10.0"        "split"

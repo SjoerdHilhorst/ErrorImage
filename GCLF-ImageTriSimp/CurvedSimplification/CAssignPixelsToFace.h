@@ -76,9 +76,9 @@ private:
     */
     InterPoint() = default;
     InterPoint(Type t, const Vec3d& p, EdgeHandle e, VertexHandle v) : type(t), point(p), eh(e), vh(v) {}
-    bool operator==(const InterPoint& rhs) { return point.x() == rhs.point.x(); }
-    bool operator<(const InterPoint& rhs) { return point.x() < rhs.point.x(); }
-    bool operator<=(const InterPoint& rhs) { return point.x() <= rhs.point.x(); }
+    bool operator==(const InterPoint& rhs) const { return point.x() == rhs.point.x(); }
+    bool operator<(const InterPoint& rhs) const { return point.x() < rhs.point.x(); }
+    bool operator<=(const InterPoint& rhs) const { return point.x() <= rhs.point.x(); }
   };
   std::vector<InterPoint> find_intersection_points(
     const Vec2d& ray_start,

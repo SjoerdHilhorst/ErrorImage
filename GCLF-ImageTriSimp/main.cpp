@@ -2,6 +2,7 @@
 #include <QImageReader>
 #include <QImageWriter>
 #include "ParamParser.h"
+#include <fstream>
 #include "LinearSimplification/LinearSimplifier.h"
 #include "CurvedSimplification/CurvedSimplifier.h"
 #include "boost/filesystem.hpp"

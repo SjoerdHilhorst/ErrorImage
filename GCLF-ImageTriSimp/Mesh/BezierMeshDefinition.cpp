@@ -116,7 +116,7 @@ void BMeshT::initialize(LMeshT* lmesh)
   for (FaceHandle fh : lmesh->faces())
   {
     auto [v0, v1, v2] = face_vertices(*lmesh, fh);
-    FaceHandle fh = add_face(v0, v1, v2);
+    fh = add_face(v0, v1, v2);
     BezierFace& bface = data(fh).bface;
     bface.degree = 1;
     bface.vert_idx = Index3(v0.idx(), v1.idx(), v2.idx());
@@ -381,8 +381,10 @@ VertexHandle BMeshT::split_face(FaceHandle fh_to_split, Vec3d uvw)
     BezierFace& opp_bface = data(face_handle(opp_hh)).bface;
 
     // Fix the indices on the common edge between two triangles.
-    for (auto& [cpi, opp_cpi] : BF_Zip(bface.global_edge_interior_ctrlpnt_ms(v_from.idx(), v_to.idx()),
-      opp_bface.global_edge_interior_ctrlpnt_mr(v_to.idx(), v_from.idx())))
+    auto zip_result = BF_Zip(bface.global_edge_interior_ctrlpnt_ms(v_from.idx(), v_to.idx()),
+                         opp_bface.global_edge_interior_ctrlpnt_mr(v_to.idx(), v_from.idx()));
+                         
+    for (auto [cpi, opp_cpi] : zip_result)
     {
       auto [idx, cp] = cpi;
       auto [opp_idx, opp_cp] = opp_cpi;
@@ -534,8 +536,11 @@ VertexHandle BMeshT::split_edge(HalfedgeHandle hh_to_split, Vec2d uv)
       BezierFace& bface = data(face_handle(hh)).bface;
       BezierFace& opp_bface = data(face_handle(opp_hh)).bface;
       // Fix the indices on the common edge between two triangles.
-      for (auto& [cpi, opp_cpi] : BF_Zip(bface.global_edge_interior_ctrlpnt_ms(v_from.idx(), v_to.idx()),
-        opp_bface.global_edge_interior_ctrlpnt_mr(v_to.idx(), v_from.idx())))
+
+      auto zip_result = BF_Zip(bface.global_edge_interior_ctrlpnt_ms(v_from.idx(), v_to.idx()),
+                         opp_bface.global_edge_interior_ctrlpnt_mr(v_to.idx(), v_from.idx()));
+                         
+      for (auto [cpi, opp_cpi] : zip_result)
       {
         auto [cp_idx, cp] = cpi;
         auto [opp_cp_idx, opp_cp] = opp_cpi;
@@ -636,9 +641,11 @@ bool BMeshT::collapse(HalfedgeHandle hh)
     BezierFace& bface_update = data(face_handle(ophh)).bface;
     BezierFace& bface_ref = data(face_handle(hh)).bface;
 
-    for (auto& [update_cpi, ref_cpi] : BF_Zip(
+    auto zip_result = BF_Zip(
       bface_update.global_edge_interior_ctrlpnt_ms(from_vertex_handle(ophh).idx(), to_vertex_handle(ophh).idx()),
-      bface_ref.global_edge_interior_ctrlpnt_cs(from_vertex_handle(nhh).idx(), to_vertex_handle(nhh).idx())))
+      bface_ref.global_edge_interior_ctrlpnt_cs(from_vertex_handle(nhh).idx(), to_vertex_handle(nhh).idx()));
+                         
+    for (auto [update_cpi, ref_cpi] : zip_result)
     {
       auto [update_cp_idx, update_cp] = update_cpi;
       auto [ref_cp_idx, ref_cp] = ref_cpi;
@@ -653,10 +660,12 @@ bool BMeshT::collapse(HalfedgeHandle hh)
   {
     BezierFace& bface_update = data(face_handle(onohh)).bface;
     BezierFace& bface_ref = data(face_handle(ohh)).bface;
-
-    for (auto& [update_cpi, ref_cpi] : BF_Zip(
+    
+    auto zip_result = BF_Zip(
       bface_update.global_edge_interior_ctrlpnt_ms(from_vertex_handle(onohh).idx(), to_vertex_handle(onohh).idx()),
-      bface_ref.global_edge_interior_ctrlpnt_cs(from_vertex_handle(pohh).idx(), to_vertex_handle(pohh).idx())))
+      bface_ref.global_edge_interior_ctrlpnt_cs(from_vertex_handle(pohh).idx(), to_vertex_handle(pohh).idx()));
+                         
+    for (auto [update_cpi, ref_cpi] : zip_result)
     {
       auto [update_cp_idx, update_cp] = update_cpi;
       auto [ref_cp_idx, ref_cp] = ref_cpi;
