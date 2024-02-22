@@ -1,0 +1,398 @@
+[10:31:49][user][info]Initial mesh: v 7268, e 21717, f 14450
+[10:31:49][user][info]Initial root_mean_lp_error 4.999859472676642
+[10:31:49][user][info]flip 187 / 21717 edges.
+[10:31:49][user][info]Final mesh: vertices 7268 edges 21717 faces 14450
+[10:31:49][user][info]Final root_mean_lp_error 4.997165074562255
+[10:31:58][user][info]relocate 420 / 7268 vertices.
+[10:31:58][user][info]Final mesh: vertices 7268 edges 21717 faces 14450
+[10:31:58][user][info]Final root_mean_lp_error 4.989333036693912
+[10:32:08][user][info]relocate 329 / 7268 vertices.
+[10:32:08][user][info]Final mesh: vertices 7268 edges 21717 faces 14450
+[10:32:08][user][info]Final root_mean_lp_error 4.984608844103766
+[10:32:16][user][info]relocate 237 / 7268 vertices.
+[10:32:16][user][info]Final mesh: vertices 7268 edges 21717 faces 14450
+[10:32:16][user][info]Final root_mean_lp_error 4.981420029722885
+[10:32:36][user][info]initialize 10133 edges to collapse.
+[10:32:36][user][info]collapse 20 edges.
+[10:32:37][user][info]collapse 40 edges.
+[10:32:38][user][info]collapse 60 edges.
+[10:32:38][user][info]collapse 80 edges.
+[10:32:39][user][info]collapse 100 edges.
+[10:32:40][user][info]collapse 120 edges.
+[10:32:40][user][info]collapse 140 edges.
+[10:32:41][user][info]collapse 160 edges.
+[10:32:42][user][info]collapse 180 edges.
+[10:32:42][user][info]collapse 200 edges.
+[10:32:43][user][info]collapse 220 edges.
+[10:32:44][user][info]collapse 240 edges.
+[10:32:44][user][info]collapse 260 edges.
+[10:32:45][user][info]collapse 280 edges.
+[10:32:46][user][info]collapse 300 edges.
+[10:32:46][user][info]collapse 320 edges.
+[10:32:47][user][info]collapse 340 edges.
+[10:32:48][user][info]collapse 360 edges.
+[10:32:48][user][info]collapse 380 edges.
+[10:32:49][user][info]collapse 400 edges.
+[10:32:50][user][info]collapse 420 edges.
+[10:32:50][user][info]collapse 440 edges.
+[10:32:51][user][info]collapse 460 edges.
+[10:32:52][user][info]collapse 480 edges.
+[10:32:52][user][info]collapse 500 edges.
+[10:32:53][user][info]collapse 520 edges.
+[10:32:54][user][info]collapse 540 edges.
+[10:32:54][user][info]collapse 560 edges.
+[10:32:55][user][info]collapse 580 edges.
+[10:32:56][user][info]collapse 600 edges.
+[10:32:57][user][info]collapse 620 edges.
+[10:32:57][user][info]collapse 640 edges.
+[10:32:58][user][info]collapse 660 edges.
+[10:32:59][user][info]collapse 680 edges.
+[10:32:59][user][info]collapse 700 edges.
+[10:33:00][user][info]collapse 720 edges.
+[10:33:01][user][info]collapse 740 edges.
+[10:33:02][user][info]collapse 760 edges.
+[10:33:02][user][info]collapse 780 edges.
+[10:33:03][user][info]collapse 800 edges.
+[10:33:04][user][info]collapse 820 edges.
+[10:33:04][user][info]collapse 840 edges.
+[10:33:05][user][info]collapse 860 edges.
+[10:33:05][user][info]collapse 880 edges.
+[10:33:06][user][info]collapse 900 edges.
+[10:33:07][user][info]collapse 920 edges.
+[10:33:08][user][info]collapse 940 edges.
+[10:33:09][user][info]collapse 960 edges.
+[10:33:10][user][info]collapse 980 edges.
+[10:33:10][user][info]collapse 1000 edges.
+[10:33:11][user][info]collapse 1020 edges.
+[10:33:12][user][info]collapse 1040 edges.
+[10:33:12][user][info]collapse 1060 edges.
+[10:33:13][user][info]collapse 1080 edges.
+[10:33:14][user][info]collapse 1100 edges.
+[10:33:14][user][info]collapse 1120 edges.
+[10:33:15][user][info]collapse 1140 edges.
+[10:33:16][user][info]collapse 1160 edges.
+[10:33:17][user][info]collapse 1180 edges.
+[10:33:18][user][info]collapse 1200 edges.
+[10:33:18][user][info]collapse 1220 edges.
+[10:33:19][user][info]collapse 1240 edges.
+[10:33:20][user][info]collapse 1260 edges.
+[10:33:21][user][info]collapse 1280 edges.
+[10:33:21][user][info]collapse 1300 edges.
+[10:33:22][user][info]collapse 1320 edges.
+[10:33:23][user][info]collapse 1340 edges.
+[10:33:24][user][info]collapse 1360 edges.
+[10:33:24][user][info]collapse 1380 edges.
+[10:33:25][user][info]collapse 1400 edges.
+[10:33:26][user][info]collapse 1420 edges.
+[10:33:27][user][info]collapse 1440 edges.
+[10:33:27][user][info]collapse 1460 edges.
+[10:33:28][user][info]collapse 1480 edges.
+[10:33:29][user][info]collapse 1500 edges.
+[10:33:30][user][info]collapse 1520 edges.
+[10:33:31][user][info]collapse 1540 edges.
+[10:33:31][user][info]collapse 1560 edges.
+[10:33:32][user][info]collapse 1580 edges.
+[10:33:33][user][info]collapse 1600 edges.
+[10:33:34][user][info]collapse 1620 edges.
+[10:33:35][user][info]collapse 1640 edges.
+[10:33:35][user][info]collapse 1660 edges.
+[10:33:36][user][info]collapse 1680 edges.
+[10:33:37][user][info]collapse 1700 edges.
+[10:33:38][user][info]collapse 1720 edges.
+[10:33:39][user][info]collapse 1740 edges.
+[10:33:39][user][info]collapse 1760 edges.
+[10:33:40][user][info]collapse 1780 edges.
+[10:33:41][user][info]collapse 1800 edges.
+[10:33:42][user][info]collapse 1820 edges.
+[10:33:42][user][info]collapse 1840 edges.
+[10:33:43][user][info]collapse 1860 edges.
+[10:33:44][user][info]collapse 1880 edges.
+[10:33:45][user][info]collapse 1900 edges.
+[10:33:46][user][info]collapse 1920 edges.
+[10:33:46][user][info]collapse 1940 edges.
+[10:33:47][user][info]collapse 1960 edges.
+[10:33:48][user][info]collapse 1980 edges.
+[10:33:49][user][info]collapse 2000 edges.
+[10:33:50][user][info]collapse 2020 edges.
+[10:33:51][user][info]collapse 2040 edges.
+[10:33:51][user][info]collapse 2060 edges.
+[10:33:52][user][info]collapse 2080 edges.
+[10:33:53][user][info]collapse 2100 edges.
+[10:33:54][user][info]collapse 2120 edges.
+[10:33:55][user][info]collapse 2140 edges.
+[10:33:55][user][info]collapse 2160 edges.
+[10:33:56][user][info]collapse 2180 edges.
+[10:33:57][user][info]collapse 2200 edges.
+[10:33:58][user][info]collapse 2220 edges.
+[10:33:59][user][info]collapse 2240 edges.
+[10:34:00][user][info]collapse 2260 edges.
+[10:34:00][user][info]collapse 2280 edges.
+[10:34:01][user][info]collapse 2300 edges.
+[10:34:02][user][info]collapse 2320 edges.
+[10:34:03][user][info]collapse 2340 edges.
+[10:34:04][user][info]collapse 2360 edges.
+[10:34:05][user][info]collapse 2380 edges.
+[10:34:06][user][info]collapse 2400 edges.
+[10:34:07][user][info]collapse 2420 edges.
+[10:34:07][user][info]collapse 2440 edges.
+[10:34:08][user][info]collapse 2460 edges.
+[10:34:09][user][info]collapse 2480 edges.
+[10:34:10][user][info]collapse 2500 edges.
+[10:34:11][user][info]collapse 2520 edges.
+[10:34:12][user][info]collapse 2540 edges.
+[10:34:13][user][info]collapse 2560 edges.
+[10:34:13][user][info]collapse 2580 edges.
+[10:34:14][user][info]collapse 2600 edges.
+[10:34:15][user][info]collapse 2620 edges.
+[10:34:16][user][info]collapse 2640 edges.
+[10:34:17][user][info]collapse 2660 edges.
+[10:34:18][user][info]collapse 2680 edges.
+[10:34:18][user][info]collapse 2700 edges.
+[10:34:19][user][info]collapse 2720 edges.
+[10:34:20][user][info]collapse 2740 edges.
+[10:34:21][user][info]collapse 2760 edges.
+[10:34:22][user][info]collapse 2780 edges.
+[10:34:23][user][info]collapse 2800 edges.
+[10:34:23][user][info]collapse 2820 edges.
+[10:34:24][user][info]collapse 2840 edges.
+[10:34:25][user][info]collapse 2860 edges.
+[10:34:26][user][info]collapse 2880 edges.
+[10:34:27][user][info]collapse 2900 edges.
+[10:34:28][user][info]collapse 2920 edges.
+[10:34:29][user][info]collapse 2940 edges.
+[10:34:30][user][info]collapse 2960 edges.
+[10:34:31][user][info]collapse 2980 edges.
+[10:34:32][user][info]collapse 3000 edges.
+[10:34:33][user][info]collapse 3020 edges.
+[10:34:34][user][info]collapse 3040 edges.
+[10:34:34][user][info]collapse 3060 edges.
+[10:34:36][user][info]collapse 3080 edges.
+[10:34:37][user][info]collapse 3100 edges.
+[10:34:38][user][info]collapse 3120 edges.
+[10:34:39][user][info]collapse 3140 edges.
+[10:34:40][user][info]collapse 3160 edges.
+[10:34:41][user][info]collapse 3180 edges.
+[10:34:42][user][info]collapse 3200 edges.
+[10:34:43][user][info]collapse 3220 edges.
+[10:34:44][user][info]collapse 3240 edges.
+[10:34:45][user][info]collapse 3260 edges.
+[10:34:46][user][info]collapse 3280 edges.
+[10:34:47][user][info]collapse 3300 edges.
+[10:34:48][user][info]collapse 3320 edges.
+[10:34:49][user][info]collapse 3340 edges.
+[10:34:50][user][info]collapse 3360 edges.
+[10:34:50][user][info]collapse 3380 edges.
+[10:34:51][user][info]collapse 3400 edges.
+[10:34:53][user][info]collapse 3420 edges.
+[10:34:54][user][info]collapse 3440 edges.
+[10:34:55][user][info]collapse 3460 edges.
+[10:34:56][user][info]collapse 3480 edges.
+[10:34:57][user][info]collapse 3500 edges.
+[10:34:58][user][info]collapse 3520 edges.
+[10:35:00][user][info]collapse 3540 edges.
+[10:35:00][user][info]collapse 3560 edges.
+[10:35:01][user][info]collapse 3580 edges.
+[10:35:02][user][info]collapse 3600 edges.
+[10:35:04][user][info]collapse 3620 edges.
+[10:35:05][user][info]collapse 3640 edges.
+[10:35:06][user][info]collapse 3660 edges.
+[10:35:07][user][info]collapse 3680 edges.
+[10:35:08][user][info]collapse 3700 edges.
+[10:35:09][user][info]collapse 3720 edges.
+[10:35:09][user][info]collapse 3740 edges.
+[10:35:10][user][info]collapse 3760 edges.
+[10:35:11][user][info]collapse 3780 edges.
+[10:35:13][user][info]collapse 3800 edges.
+[10:35:14][user][info]collapse 3820 edges.
+[10:35:14][user][info]collapse 3840 edges.
+[10:35:15][user][info]collapse 3860 edges.
+[10:35:16][user][info]collapse 3880 edges.
+[10:35:17][user][info]collapse 3900 edges.
+[10:35:19][user][info]collapse 3920 edges.
+[10:35:20][user][info]collapse 3940 edges.
+[10:35:21][user][info]collapse 3960 edges.
+[10:35:22][user][info]collapse 3980 edges.
+[10:35:23][user][info]collapse 4000 edges.
+[10:35:24][user][info]collapse 4020 edges.
+[10:35:25][user][info]collapse 4040 edges.
+[10:35:26][user][info]collapse 4060 edges.
+[10:35:27][user][info]collapse 4080 edges.
+[10:35:28][user][info]collapse 4100 edges.
+[10:35:29][user][info]collapse 4120 edges.
+[10:35:30][user][info]collapse 4140 edges.
+[10:35:31][user][info]collapse 4160 edges.
+[10:35:33][user][info]collapse 4180 edges.
+[10:35:35][user][info]collapse 4200 edges.
+[10:35:36][user][info]collapse 4220 edges.
+[10:35:37][user][info]collapse 4240 edges.
+[10:35:38][user][info]collapse 4260 edges.
+[10:35:39][user][info]collapse 4280 edges.
+[10:35:40][user][info]collapse 4300 edges.
+[10:35:41][user][info]collapse 4320 edges.
+[10:35:43][user][info]collapse 4340 edges.
+[10:35:44][user][info]collapse 4360 edges.
+[10:35:45][user][info]collapse 4380 edges.
+[10:35:46][user][info]collapse 4400 edges.
+[10:35:46][user][info]collapse 4420 edges.
+[10:35:47][user][info]collapse 4440 edges.
+[10:35:49][user][info]collapse 4460 edges.
+[10:35:49][user][info]collapse 4480 edges.
+[10:35:51][user][info]collapse 4500 edges.
+[10:35:53][user][info]collapse 4520 edges.
+[10:35:54][user][info]collapse 4540 edges.
+[10:35:55][user][info]collapse 4560 edges.
+[10:35:57][user][info]collapse 4580 edges.
+[10:35:58][user][info]collapse 4600 edges.
+[10:36:00][user][info]collapse 4620 edges.
+[10:36:01][user][info]collapse 4640 edges.
+[10:36:03][user][info]collapse 4660 edges.
+[10:36:04][user][info]collapse 4680 edges.
+[10:36:06][user][info]collapse 4700 edges.
+[10:36:07][user][info]collapse 4720 edges.
+[10:36:08][user][info]collapse 4740 edges.
+[10:36:09][user][info]collapse 4760 edges.
+[10:36:11][user][info]collapse 4780 edges.
+[10:36:12][user][info]collapse 4800 edges.
+[10:36:13][user][info]collapse 4820 edges.
+[10:36:14][user][info]collapse 4840 edges.
+[10:36:15][user][info]collapse 4860 edges.
+[10:36:16][user][info]collapse 4880 edges.
+[10:36:18][user][info]collapse 4900 edges.
+[10:36:19][user][info]collapse 4920 edges.
+[10:36:20][user][info]collapse 4940 edges.
+[10:36:22][user][info]collapse 4960 edges.
+[10:36:23][user][info]collapse 4980 edges.
+[10:36:24][user][info]collapse 5000 edges.
+[10:36:25][user][info]collapse 5020 edges.
+[10:36:26][user][info]collapse 5040 edges.
+[10:36:28][user][info]collapse 5060 edges.
+[10:36:29][user][info]collapse 5080 edges.
+[10:36:30][user][info]collapse 5100 edges.
+[10:36:32][user][info]collapse 5120 edges.
+[10:36:33][user][info]collapse 5140 edges.
+[10:36:36][user][info]collapse 5160 edges.
+[10:36:37][user][info]collapse 5180 edges.
+[10:36:39][user][info]collapse 5200 edges.
+[10:36:40][user][info]collapse 5220 edges.
+[10:36:41][user][info]collapse 5240 edges.
+[10:36:42][user][info]collapse 5260 edges.
+[10:36:44][user][info]collapse 5280 edges.
+[10:36:45][user][info]collapse 5300 edges.
+[10:36:46][user][info]collapse 5320 edges.
+[10:36:48][user][info]collapse 5340 edges.
+[10:36:49][user][info]collapse 5360 edges.
+[10:36:51][user][info]collapse 5380 edges.
+[10:36:52][user][info]collapse 5400 edges.
+[10:36:54][user][info]collapse 5420 edges.
+[10:36:55][user][info]collapse 5440 edges.
+[10:36:56][user][info]collapse 5460 edges.
+[10:36:58][user][info]collapse 5480 edges.
+[10:36:59][user][info]collapse 5500 edges.
+[10:37:00][user][info]collapse 5520 edges.
+[10:37:01][user][info]collapse 5540 edges.
+[10:37:03][user][info]collapse 5560 edges.
+[10:37:05][user][info]collapse 5580 edges.
+[10:37:07][user][info]collapse 5600 edges.
+[10:37:10][user][info]collapse 5620 edges.
+[10:37:11][user][info]collapse 5640 edges.
+[10:37:13][user][info]collapse 5660 edges.
+[10:37:15][user][info]collapse 5680 edges.
+[10:37:16][user][info]collapse 5700 edges.
+[10:37:18][user][info]collapse 5720 edges.
+[10:37:19][user][info]collapse 5740 edges.
+[10:37:21][user][info]collapse 5760 edges.
+[10:37:22][user][info]collapse 5780 edges.
+[10:37:23][user][info]collapse 5800 edges.
+[10:37:25][user][info]collapse 5820 edges.
+[10:37:27][user][info]collapse 5840 edges.
+[10:37:29][user][info]collapse 5860 edges.
+[10:37:32][user][info]collapse 5880 edges.
+[10:37:33][user][info]collapse 5900 edges.
+[10:37:35][user][info]collapse 5920 edges.
+[10:37:37][user][info]collapse 5940 edges.
+[10:37:39][user][info]collapse 5960 edges.
+[10:37:41][user][info]collapse 5980 edges.
+[10:37:42][user][info]collapse 6000 edges.
+[10:37:44][user][info]collapse 6020 edges.
+[10:37:45][user][info]collapse 6040 edges.
+[10:37:47][user][info]collapse 6060 edges.
+[10:37:49][user][info]collapse 6080 edges.
+[10:37:51][user][info]collapse 6100 edges.
+[10:37:53][user][info]collapse 6120 edges.
+[10:37:55][user][info]collapse 6140 edges.
+[10:37:57][user][info]collapse 6160 edges.
+[10:37:59][user][info]collapse 6180 edges.
+[10:38:00][user][info]collapse 6200 edges.
+[10:38:02][user][info]collapse 6220 edges.
+[10:38:04][user][info]collapse 6240 edges.
+[10:38:06][user][info]collapse 6260 edges.
+[10:38:07][user][info]collapse 6280 edges.
+[10:38:09][user][info]collapse 6300 edges.
+[10:38:12][user][info]collapse 6320 edges.
+[10:38:14][user][info]collapse 6340 edges.
+[10:38:16][user][info]collapse 6360 edges.
+[10:38:18][user][info]collapse 6380 edges.
+[10:38:20][user][info]collapse 6400 edges.
+[10:38:22][user][info]collapse 6420 edges.
+[10:38:25][user][info]collapse 6440 edges.
+[10:38:28][user][info]collapse 6460 edges.
+[10:38:30][user][info]collapse 6480 edges.
+[10:38:32][user][info]collapse 6500 edges.
+[10:38:34][user][info]collapse 6520 edges.
+[10:38:36][user][info]collapse 6540 edges.
+[10:38:37][user][info]collapse 6548 edges.
+[10:38:37][user][info]Final mesh: vertices 719 edges 2109 faces 1391
+[10:38:37][user][info]Final root_mean_lp_error 9.998237095327259
+[10:38:38][user][info]flip 69 / 2109 edges.
+[10:38:38][user][info]Final mesh: vertices 719 edges 2109 faces 1391
+[10:38:38][user][info]Final root_mean_lp_error 9.974633989570929
+[10:38:41][user][info]relocate 389 / 719 vertices.
+[10:38:41][user][info]Final mesh: vertices 719 edges 2109 faces 1391
+[10:38:41][user][info]Final root_mean_lp_error 9.81979639913281
+[10:38:45][user][info]relocate 249 / 719 vertices.
+[10:38:45][user][info]Final mesh: vertices 719 edges 2109 faces 1391
+[10:38:45][user][info]Final root_mean_lp_error 9.773298794682225
+[10:38:49][user][info]relocate 182 / 719 vertices.
+[10:38:49][user][info]Final mesh: vertices 719 edges 2109 faces 1391
+[10:38:49][user][info]Final root_mean_lp_error 9.748435218829593
+[10:38:56][user][info]initialize 1015 edges to collapse.
+[10:38:58][user][info]collapse 20 edges.
+[10:39:01][user][info]collapse 40 edges.
+[10:39:03][user][info]collapse 55 edges.
+[10:39:03][user][info]Final mesh: vertices 664 edges 1945 faces 1282
+[10:39:03][user][info]Final root_mean_lp_error 9.997962776011263
+[10:39:03][user][info]flip 17 / 1945 edges.
+[10:39:03][user][info]Final mesh: vertices 664 edges 1945 faces 1282
+[10:39:03][user][info]Final root_mean_lp_error 9.99325072519146
+[10:39:06][user][info]relocate 163 / 664 vertices.
+[10:39:06][user][info]Final mesh: vertices 664 edges 1945 faces 1282
+[10:39:06][user][info]Final root_mean_lp_error 9.951910484774018
+[10:39:10][user][info]relocate 133 / 664 vertices.
+[10:39:10][user][info]Final mesh: vertices 664 edges 1945 faces 1282
+[10:39:10][user][info]Final root_mean_lp_error 9.933577421108943
+[10:39:14][user][info]relocate 84 / 664 vertices.
+[10:39:14][user][info]Final mesh: vertices 664 edges 1945 faces 1282
+[10:39:14][user][info]Final root_mean_lp_error 9.924910661423631
+[10:39:21][user][info]initialize 950 edges to collapse.
+[10:39:23][user][info]collapse 17 edges.
+[10:39:23][user][info]Final mesh: vertices 647 edges 1894 faces 1248
+[10:39:23][user][info]Final root_mean_lp_error 9.99916558792913
+[10:39:24][user][info]flip 11 / 1894 edges.
+[10:39:24][user][info]Final mesh: vertices 647 edges 1894 faces 1248
+[10:39:24][user][info]Final root_mean_lp_error 9.997780782613935
+[10:39:27][user][info]relocate 104 / 647 vertices.
+[10:39:27][user][info]Final mesh: vertices 647 edges 1894 faces 1248
+[10:39:27][user][info]Final root_mean_lp_error 9.981663430714084
+[10:39:31][user][info]relocate 88 / 647 vertices.
+[10:39:31][user][info]Final mesh: vertices 647 edges 1894 faces 1248
+[10:39:31][user][info]Final root_mean_lp_error 9.969633444884696
+[10:39:34][user][info]relocate 73 / 647 vertices.
+[10:39:34][user][info]Final mesh: vertices 647 edges 1894 faces 1248
+[10:39:34][user][info]Final root_mean_lp_error 9.962249009343914
+[10:39:42][user][info]initialize 897 edges to collapse.
+[10:39:43][user][info]collapse 6 edges.
+[10:39:43][user][info]Final mesh: vertices 641 edges 1876 faces 1236
+[10:39:43][user][info]Final root_mean_lp_error 9.994718299676396
+[10:39:43][user][info]convergence.
+[10:39:43][user][info]Final mesh: vertices 641 edges 1876 faces 1236
+[10:39:43][user][info]Final root_mean_lp_error 9.994718299676396

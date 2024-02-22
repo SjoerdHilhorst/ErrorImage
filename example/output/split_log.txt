@@ -1,10 +1,92 @@
-[14:10:31][user][info]Initial mesh: v 3418, e 10195, f 6778
-[14:10:31][user][info]Initial root_mean_lp_error 11.810962935949345
-[14:10:31][user][info]flip 1419 / 10195 edges.
-[14:10:31][user][info]Final mesh: vertices 3418 edges 10195 faces 6778
-[14:10:31][user][info]Final root_mean_lp_error 11.424275166173425
-[14:10:55][user][info]relocate 2747 vertices.
-[14:10:55][user][info]Final mesh: vertices 3418 edges 10195 faces 6778
-[14:10:55][user][info]Final root_mean_lp_error 9.037139337187634
-[14:10:55][user][info]Final mesh: vertices 3418 edges 10195 faces 6778
-[14:10:55][user][info]Final root_mean_lp_error 9.037139337187634
+[17:02:35][user][info]Initial mesh: v 3418, e 10195, f 6778
+[17:02:35][user][info]Initial root_mean_lp_error 11.810962935949345
+[17:02:35][user][info]flip 1419 / 10195 edges.
+[17:02:35][user][info]Final mesh: vertices 3418 edges 10195 faces 6778
+[17:02:35][user][info]Final root_mean_lp_error 11.424275166173425
+[17:02:59][user][info]relocate 2725 vertices.
+[17:02:59][user][info]Final mesh: vertices 3418 edges 10195 faces 6778
+[17:02:59][user][info]Final root_mean_lp_error 9.048276418699677
+[17:03:21][user][info]relocate 1911 vertices.
+[17:03:21][user][info]Final mesh: vertices 3418 edges 10195 faces 6778
+[17:03:21][user][info]Final root_mean_lp_error 8.695571636935334
+[17:03:29][user][info]relocate 268 vertices.
+[17:03:29][user][info]Final mesh: vertices 3418 edges 10195 faces 6778
+[17:03:29][user][info]Final root_mean_lp_error 8.63553057565707
+[17:03:39][user][info]initialize 4921 edges to split
+[17:03:53][user][info]split 2489 edges.
+[17:03:53][user][info]Final mesh: vertices 5907 edges 17638 faces 11732
+[17:03:53][user][info]Final root_mean_lp_error 6.129927409250704
+[17:03:54][user][info]flip 1177 / 17638 edges.
+[17:03:54][user][info]Final mesh: vertices 5907 edges 17638 faces 11732
+[17:03:54][user][info]Final root_mean_lp_error 6.054129643618163
+[17:04:01][user][info]relocate 592 vertices.
+[17:04:01][user][info]Final mesh: vertices 5907 edges 17638 faces 11732
+[17:04:01][user][info]Final root_mean_lp_error 6.013705024964063
+[17:04:04][user][info]relocate 142 vertices.
+[17:04:04][user][info]Final mesh: vertices 5907 edges 17638 faces 11732
+[17:04:04][user][info]Final root_mean_lp_error 6.008940925810869
+[17:04:15][user][info]relocate 3253 / 5907 vertices.
+[17:04:15][user][info]Final mesh: vertices 5907 edges 17638 faces 11732
+[17:04:15][user][info]Final root_mean_lp_error 5.737007730724993
+[17:04:17][user][info]relocate 100 vertices.
+[17:04:17][user][info]Final mesh: vertices 5907 edges 17638 faces 11732
+[17:04:17][user][info]Final root_mean_lp_error 5.734104964463843
+[17:04:28][user][info]relocate 1764 / 5907 vertices.
+[17:04:28][user][info]Final mesh: vertices 5907 edges 17638 faces 11732
+[17:04:28][user][info]Final root_mean_lp_error 5.666615149145042
+[17:04:40][user][info]initialize 9595 edges to split
+[17:04:44][user][info]split 929 edges.
+[17:04:44][user][info]Final mesh: vertices 6836 edges 20422 faces 13587
+[17:04:44][user][info]Final root_mean_lp_error 5.324392470311184
+[17:04:44][user][info]flip 791 / 20422 edges.
+[17:04:44][user][info]Final mesh: vertices 6836 edges 20422 faces 13587
+[17:04:44][user][info]Final root_mean_lp_error 5.2966073219252054
+[17:04:48][user][info]relocate 152 vertices.
+[17:04:48][user][info]Final mesh: vertices 6836 edges 20422 faces 13587
+[17:04:48][user][info]Final root_mean_lp_error 5.291500497348566
+[17:04:59][user][info]relocate 1948 / 6836 vertices.
+[17:04:59][user][info]Final mesh: vertices 6836 edges 20422 faces 13587
+[17:04:59][user][info]Final root_mean_lp_error 5.223872952613846
+[17:05:03][user][info]relocate 124 vertices.
+[17:05:03][user][info]Final mesh: vertices 6836 edges 20422 faces 13587
+[17:05:03][user][info]Final root_mean_lp_error 5.2205864560032165
+[17:05:14][user][info]relocate 1043 / 6836 vertices.
+[17:05:14][user][info]Final mesh: vertices 6836 edges 20422 faces 13587
+[17:05:14][user][info]Final root_mean_lp_error 5.19853544213838
+[17:05:19][user][info]relocate 191 vertices.
+[17:05:19][user][info]Final mesh: vertices 6836 edges 20422 faces 13587
+[17:05:19][user][info]Final root_mean_lp_error 5.194921008110356
+[17:05:30][user][info]relocate 651 / 6836 vertices.
+[17:05:30][user][info]Final mesh: vertices 6836 edges 20422 faces 13587
+[17:05:30][user][info]Final root_mean_lp_error 5.182755561797097
+[17:05:43][user][info]initialize 10598 edges to split
+[17:05:45][user][info]split 356 edges.
+[17:05:45][user][info]Final mesh: vertices 7192 edges 21489 faces 14298
+[17:05:45][user][info]Final root_mean_lp_error 5.074026474599328
+[17:05:46][user][info]flip 399 / 21489 edges.
+[17:05:46][user][info]Final mesh: vertices 7192 edges 21489 faces 14298
+[17:05:46][user][info]Final root_mean_lp_error 5.064139490318361
+[17:05:49][user][info]relocate 100 vertices.
+[17:05:49][user][info]Final mesh: vertices 7192 edges 21489 faces 14298
+[17:05:49][user][info]Final root_mean_lp_error 5.062110206818872
+[17:06:01][user][info]relocate 846 / 7192 vertices.
+[17:06:01][user][info]Final mesh: vertices 7192 edges 21489 faces 14298
+[17:06:01][user][info]Final root_mean_lp_error 5.0400657772207165
+[17:06:05][user][info]relocate 100 vertices.
+[17:06:05][user][info]Final mesh: vertices 7192 edges 21489 faces 14298
+[17:06:05][user][info]Final root_mean_lp_error 5.038594056781994
+[17:06:16][user][info]relocate 506 / 7192 vertices.
+[17:06:16][user][info]Final mesh: vertices 7192 edges 21489 faces 14298
+[17:06:16][user][info]Final root_mean_lp_error 5.030276221457283
+[17:06:21][user][info]relocate 100 vertices.
+[17:06:21][user][info]Final mesh: vertices 7192 edges 21489 faces 14298
+[17:06:21][user][info]Final root_mean_lp_error 5.028700530912476
+[17:06:32][user][info]relocate 346 / 7192 vertices.
+[17:06:32][user][info]Final mesh: vertices 7192 edges 21489 faces 14298
+[17:06:32][user][info]Final root_mean_lp_error 5.024587578227384
+[17:06:44][user][info]initialize 11109 edges to split
+[17:06:45][user][info]split 76 edges.
+[17:06:45][user][info]Final mesh: vertices 7268 edges 21717 faces 14450
+[17:06:45][user][info]Final root_mean_lp_error 4.999813438141756
+[17:06:45][user][info]Final mesh: vertices 7268 edges 21717 faces 14450
+[17:06:45][user][info]Final root_mean_lp_error 4.999813438141756

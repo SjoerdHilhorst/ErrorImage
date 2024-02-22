@@ -1,0 +1,22 @@
+[10:00:56][user][info]Initial mesh: v 3418, e 10195, f 6778
+[10:00:56][user][info]Initial root_mean_lp_error 17.2486083677508
+[10:01:06][user][info]Final mesh: vertices 3418 edges 10195 faces 6778
+[10:01:06][user][info]Final root_mean_lp_error 16.33475669626741
+[10:01:17][user][info]Final mesh: vertices 3418 edges 10195 faces 6778
+[10:01:17][user][info]Final root_mean_lp_error 15.776734155634765
+[10:01:22][user][info]Final mesh: vertices 3418 edges 10195 faces 6778
+[10:01:22][user][info]Final root_mean_lp_error 15.636763392438514
+[10:01:33][user][info]Final mesh: vertices 3418 edges 10195 faces 6778
+[10:01:33][user][info]Final root_mean_lp_error 12.027525748990545
+[10:01:38][user][info]Final mesh: vertices 3418 edges 10195 faces 6778
+[10:01:38][user][info]Final root_mean_lp_error 10.941923668906353
+[10:01:48][user][info]Final mesh: vertices 3418 edges 10195 faces 6778
+[10:01:48][user][info]Final root_mean_lp_error 11.402773969927312
+[10:01:53][user][info]Final mesh: vertices 3418 edges 10195 faces 6778
+[10:01:53][user][info]Final root_mean_lp_error 15.431148875095342
+[10:02:10][user][info]initialize 1037 edges to collapse.
+[10:02:10][user][info]Final mesh: vertices 3418 edges 10195 faces 6778
+[10:02:10][user][info]Final root_mean_lp_error 11.939622645316991
+[10:02:10][user][info]convergence.
+[10:02:10][user][info]Final mesh: vertices 3418 edges 10195 faces 6778
+[10:02:10][user][info]Final root_mean_lp_error 15.431148875095342

@@ -3,8 +3,8 @@
 # Define variables
 executable="./exeGCLF-ImageTriSimp"
 config="./config.json"
-input_image="./cat.png"
-input_mesh="./simplified_linear_mesh.obj"
+input_image="./output/cat.png"
+input_mesh="./output/cat_init.obj"
 output_directory="./output/"
 error_bound="10.0"
 mode="curved"
