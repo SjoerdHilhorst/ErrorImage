@@ -170,9 +170,10 @@ void LinearSimplifier::simplify()
   size_t iter = 0;
   while (iter < config.max_simplify_iter)
   {
-    flip(OptStrategy::EOQB);
-    for (size_t i = 0;i < 3;i++)
-      relocate(OptStrategy::EOQB);
+    // commented out to only see effect of collapsing edges
+    // flip(OptStrategy::EOQB);
+    // for (size_t i = 0;i < 3;i++)
+    //   relocate(OptStrategy::EOQB);
     size_t collapsed_size = collapse_with_priority();
 
     if (collapsed_size < config.convergence_collapse_number)
@@ -180,6 +181,8 @@ void LinearSimplifier::simplify()
       Logger::user_logger->info("convergence.");
       break;
     }
+
+    Logger::user_logger->info("ITERATION {} OF {}", iter, config.max_simplify_iter);
     iter++;
   }
 
@@ -625,6 +628,7 @@ void LinearSimplifier::update_verts_to_relocate(VertexHandle vh)
   verts_queue.emplace(vh, -mesh->data(vh).error, Vec3d(), current_timestamp);
 }
 
+// Collapse edges according to error change, lowest to highest, note that error change can be negative
 size_t LinearSimplifier::collapse_with_priority()
 {
   init_edges_queue_to_collapse();
@@ -639,8 +643,13 @@ size_t LinearSimplifier::collapse_with_priority()
       edges_queue.pop();
       continue;
     }
+
+    // TODO: make it able to go above error bound, because mesh colours makes it smaller
     if (current_error + top.error_change > config.error_bound)
+    {
+      Logger::user_logger->info("Error above error bound, edges left in queue: {}", edges_queue.size());
       break;
+    }
     // do collapse
     EdgeHandle eh = top.handle;
     HalfedgeHandle hh = mesh->halfedge_handle(eh, 0);
@@ -696,6 +705,7 @@ size_t LinearSimplifier::collapse_with_priority()
   return collapsed_size;
 }
 
+// Loop over edges and emplace it in the priority queue
 void LinearSimplifier::init_edges_queue_to_collapse()
 {
   edges_queue = EdgeQueue();
@@ -734,6 +744,8 @@ void LinearSimplifier::update_edge_to_collapse(EdgeHandle eh)
   Vec3d opt_pos;
   double error_before, error_after, quality_before, quality_after;
   // We use "Error Optimized Quality Bounded".
+
+  // Not a boundary edge of vertex -> normal collapser
   if (!mesh->is_boundary(eh) && !mesh->is_boundary(v0) && !mesh->is_boundary(v1))
   {
     auto collapser = new_collapser();
@@ -751,7 +763,7 @@ void LinearSimplifier::update_edge_to_collapse(EdgeHandle eh)
     if (error_after < DBL_MAX)
       edges_queue.emplace(eh, error_after - error_before, opt_pos, current_timestamp);
   }
-  else if (!mesh->is_boundary(eh))
+  else if (!mesh->is_boundary(eh)) // Boundary vertex collapser
   {
     auto collapser = new_bv_collapser();
     // check if collapse ok
@@ -782,12 +794,12 @@ void LinearSimplifier::update_edge_to_collapse(EdgeHandle eh)
       optimizer.error_optimized_quality_bounded(
         static_cast<LLocalOperation*>(&collapser), config.quality_bound, current_error,
         opt_pos, error_before, error_after, quality_before, quality_after);
-      // updpate
+      // update
       if (error_after < DBL_MAX)
         edges_queue.emplace(eh, error_after - error_before, opt_pos, current_timestamp);
     }
   }
-  else
+  else // boundary edge collapser
   {
     auto collapser = new_be_collapser();
     // check if collapse ok

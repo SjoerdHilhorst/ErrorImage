@@ -247,7 +247,8 @@ CAssignPixelsToFace::find_intersection_points(
     }
     auto [from_p, to_p] = from_to_p(*mesh, hh);
     // from_p is also control_points[0], to_p is also control_points[2].
-    ASSERT(from_p == curve->ctrl_points[0], "edge's control points error.");
+
+    ASSERT(from_p != curve->ctrl_points[0] || to_p != curve->ctrl_points[2], "edge's control points error.");
 
     switch (inter_type)
     {
