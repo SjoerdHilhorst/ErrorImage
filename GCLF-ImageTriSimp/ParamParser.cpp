@@ -40,6 +40,8 @@ ParamTriangulator::ParamTriangulator()
   max_DE_iter = 30;
   // Collapse
   max_valence = 10;
+
+  max_mesh_color_resolution = 1;
 }
 
 }// namespace ImageTriSimp

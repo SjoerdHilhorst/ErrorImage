@@ -81,6 +81,8 @@ public:
     size_t convergence_collapse_number;
     // collapse
     uint32_t max_valence;
+    
+    size_t max_mesh_color_resolution;
   }config;
 
   enum class OptStrategy

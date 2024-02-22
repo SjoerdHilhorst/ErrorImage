@@ -14,6 +14,7 @@ void LinearSimplifier::initialize(ImageT& input_image, LMeshT& input_mesh, Param
   set_max_valence(param.max_valence);
   config.max_simplify_iter = param.param_linear.max_simplify_iter;
   config.convergence_collapse_number = param.param_linear.convergence_collapse_number;
+  config.max_mesh_color_resolution = param.max_mesh_color_resolution;
   // initialize DE optimizer.
   optimizer.initialize(this, param);
   // initialize mesh and image.
@@ -647,6 +648,7 @@ size_t LinearSimplifier::collapse_with_priority()
     // TODO: make it able to go above error bound, because mesh colours makes it smaller
     if (current_error + top.error_change > config.error_bound)
     {
+
       Logger::user_logger->info("Error above error bound, edges left in queue: {}", edges_queue.size());
       break;
     }

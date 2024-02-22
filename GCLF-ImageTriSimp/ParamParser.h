@@ -94,6 +94,9 @@ struct ParamTriangulator
   ParamLinear param_linear;
   ParamCurved param_curved;
 
+  /* Mesh colors */
+  size_t max_mesh_color_resolution
+
   ParamTriangulator();
 
   boost::json::object serialize()const
@@ -110,6 +113,7 @@ struct ParamTriangulator
     jo["max_valence"] = max_valence;
     jo["paramLinear"] = param_linear.serialize();
     jo["paramCurved"] = param_curved.serialize();
+    jo["max_mesh_color_resolution"] = max_mesh_color_resolution;
     return jo;
   }
   void deserialize(const boost::json::object& jo)
@@ -125,6 +129,7 @@ struct ParamTriangulator
     max_valence = jo.at("max_valence").as_int64();
     param_linear.deserialize(jo.at("paramLinear").as_object());
     param_curved.deserialize(jo.at("paramCurved").as_object());
+    max_mesh_color_resolution = jo.at("max_mesh_color_resolution").as_int64();
   }
 };
 
