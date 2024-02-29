@@ -214,7 +214,7 @@ bool LLocalOperation::is_corner_vertex(VertexHandle vh)
 {
   ASSERT(mesh->is_boundary(vh), "vh is not boundary vertex.");
   HalfedgeHandle hh = mesh->halfedge_handle(vh);
-  ASSERT(mesh->from_vertex_handle(hh) == vh, "halfedge's from vertex is wrong.");
+  ASSERT(mesh->from_vertex_handle(hh) == vh, "halfedge's from vertex is wrong. {} != {}", mesh->from_vertex_handle(hh).idx(), vh.idx());
 
   const Vec3d& cur_p = mesh->point(vh);
   const Vec3d& next_p = mesh->point(mesh->to_vertex_handle(hh));

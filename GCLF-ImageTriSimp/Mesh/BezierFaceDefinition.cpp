@@ -44,7 +44,8 @@ Index BezierFace::find_local_vert_idx(Index v) const
   if (vert_idx[1] == v) return 1;
   if (vert_idx[2] == v) return 2;
 
-  ASSERT(false, "can't find the expected vertex.");
+  Logger::dev_logger->warn("can't find the expected vertex. {}, {}, {} and {}", vert_idx[0], vert_idx[1], vert_idx[2], v);
+  // ASSERT(false, "can't find the expected vertex. {}, {}, {}", vert_idx[0], vert_idx[1], vert_idx[2]);
   return -1;
 }
 

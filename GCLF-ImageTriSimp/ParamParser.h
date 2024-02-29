@@ -95,7 +95,7 @@ struct ParamTriangulator
   ParamCurved param_curved;
 
   /* Mesh colors */
-  size_t max_mesh_color_resolution
+  size_t max_mesh_color_resolution;
 
   ParamTriangulator();
 

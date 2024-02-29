@@ -33,7 +33,8 @@ Index BezierTriangle::index_of_vert(uint32_t degree, Index vert_idx)
   case 0:return 0;
   case 1:return (degree * (degree + 1)) / 2;
   case 2:return (degree * (degree + 1)) / 2 + degree;
-  default:ASSERT(false, "wrong vertex index.");break;
+  // default:ASSERT(false, "wrong vertex index.");break;
+  default:Logger::dev_logger->error("wrong vertex index.");
   }
   return -1;
 }

@@ -284,6 +284,9 @@ void QImage2ImageT(const QImage& qimg, ImageT& img)
 void ImageT2QImage(const ImageT& img, QImage& qimg)
 {
   qimg.scaled(img.width, img.height);
+
+  // Image format normally is a color table, but we want to use our own colors
+  // qimg = qimg.convertToFormat(QImage::Format_RGB32);
   for (int y = 0;y < img.height;y++)
     for (int x = 0;x < img.width;x++)
     {
@@ -298,7 +301,11 @@ void ImageT2QImage(const ImageT& img, QImage& qimg)
       uint32_t qgreen = (int)round(ImageT::green_channel(color));
       uint32_t qblue = (int)round(ImageT::blue_channel(color));
     #endif
+      QColor c(qred, qgreen, qblue);
       qcolor = (255u << 24) | (qred << 16) | (qgreen << 8) | qblue;
       qimg.setPixel(x, y, qcolor);
+
+      //Logger::user_logger->info("pixel {}, {} with color {} {} {}, image color {}", x, y, qred, qgreen, qblue, c.rgba());
+      // qimg.setPixelColor(x, y, c);
     }
 }

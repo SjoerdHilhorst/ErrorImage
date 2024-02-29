@@ -112,6 +112,9 @@ void LinearSimplifier::set_error_bound(double error_bound)
   #endif
     break;
   }
+    
+  Logger::user_logger->info("Error bound {}", config.error_bound);
+
   split_to_error_bound();
 }
 
@@ -136,6 +139,8 @@ void LinearSimplifier::split_to_error_bound()
 
   while (current_error > config.error_bound && mesh->n_vertices() < max_vertices)
   {
+    Logger::user_logger->info("Current Error {} > {}", current_error, config.error_bound);
+
     flip(OptStrategy::EOQB);      if (current_error <= config.error_bound) goto SPLIT_END;
     // error_to_file = true;
     for (size_t i = 0;i < 3;i++)
