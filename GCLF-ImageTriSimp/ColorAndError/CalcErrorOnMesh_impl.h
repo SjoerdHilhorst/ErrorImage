@@ -19,8 +19,8 @@ double CalcErrorOnMesh<Simplifier>::lp_error()
   {
     for (int x = 0;x < image->width;x++)
     {
-      auto& pixel_color = image->pixel_color(x, y);
-      auto& approx_color = out_image->pixel_color(x, y);
+      auto pixel_color = image->pixel_color(x, y);
+      auto approx_color = out_image->pixel_color(x, y);
       auto color_diff = pixel_color - approx_color;
       color_diff.x() = fabs(color_diff.x()); color_diff.y() = fabs(color_diff.y()); color_diff.z() = fabs(color_diff.z());
       error += color_diff.pow(p).sum();

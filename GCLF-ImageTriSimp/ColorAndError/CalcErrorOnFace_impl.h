@@ -50,7 +50,7 @@ double CalcErrorOnFace<Simplifier>::calc_error_with_lpnorm(const FaceColor& face
     ImageT::Color approx_color = face_color.get_constant_color();
     for (const Vec2i& pixel_coord : pixel_coords)
     {
-      ImageT::Color& pixel_color = image->pixel_color(pixel_coord.x(), pixel_coord.y());
+      ImageT::Color pixel_color = image->pixel_color(pixel_coord.x(), pixel_coord.y());
       ImageT::Color color_diff = approx_color - pixel_color;
       color_diff._x = abs(color_diff._x); color_diff._y = abs(color_diff._y); color_diff._z = abs(color_diff._z);
       error += color_diff.pow(p).sum();
@@ -61,7 +61,7 @@ double CalcErrorOnFace<Simplifier>::calc_error_with_lpnorm(const FaceColor& face
   {
     for (const Vec2i& pixel_coord : pixel_coords)
     {
-      ImageT::Color& pixel_color = image->pixel_color(pixel_coord.x(), pixel_coord.y());
+      ImageT::Color pixel_color = image->pixel_color(pixel_coord.x(), pixel_coord.y());
       ImageT::Color approx_color = face_color.get_linear_color((double)pixel_coord.x(), (double)pixel_coord.y());
       ImageT::Color color_diff = approx_color - pixel_color;
       color_diff._x = abs(color_diff._x); color_diff._y = abs(color_diff._y); color_diff._z = abs(color_diff._z);
@@ -73,8 +73,20 @@ double CalcErrorOnFace<Simplifier>::calc_error_with_lpnorm(const FaceColor& face
   {
     for (const Vec2i& pixel_coord : pixel_coords)
     {
-      ImageT::Color& pixel_color = image->pixel_color(pixel_coord.x(), pixel_coord.y());
+      ImageT::Color pixel_color = image->pixel_color(pixel_coord.x(), pixel_coord.y());
       ImageT::Color approx_color = face_color.get_quadratic_color((double)pixel_coord.x(), (double)pixel_coord.y());
+      ImageT::Color color_diff = approx_color - pixel_color;
+      color_diff._x = abs(color_diff._x); color_diff._y = abs(color_diff._y); color_diff._z = abs(color_diff._z);
+      error += color_diff.pow(p).sum();
+    }
+  }
+  break;
+  case FaceColor::Type::Mesh:
+  {
+    for (const Vec2i& pixel_coord : pixel_coords)
+    {
+      ImageT::Color pixel_color = image->pixel_color(pixel_coord.x(), pixel_coord.y());
+      ImageT::Color approx_color = face_color.get_mesh_color((double)pixel_coord.x(), (double)pixel_coord.y());
       ImageT::Color color_diff = approx_color - pixel_color;
       color_diff._x = abs(color_diff._x); color_diff._y = abs(color_diff._y); color_diff._z = abs(color_diff._z);
       error += color_diff.pow(p).sum();
@@ -103,11 +115,12 @@ std::vector<double> CalcErrorOnFace<Simplifier>::calc_gradient_with_lpnorm(const
 
   switch (face_color.type)
   {
-  case FaceColor::Type::Linear:
+  //TODO: make this a separate case for mesh
+  case FaceColor::Type::Linear: case FaceColor::Type::Mesh: case FaceColor::Type::Constant:
   {
     for (const Vec2i& pixel_coord : pixel_coords)
     {
-      ImageT::Color& pixel_color = image->pixel_color(pixel_coord.x(), pixel_coord.y());
+      ImageT::Color pixel_color = image->pixel_color(pixel_coord.x(), pixel_coord.y());
       ImageT::Color approx_color = face_color.get_linear_color((double)pixel_coord.x(), (double)pixel_coord.y());
       ImageT::Color color_diff = approx_color - pixel_color;
       ImageT::Color color_diff_p = color_diff.pow(p - 1) * p;
@@ -128,7 +141,7 @@ std::vector<double> CalcErrorOnFace<Simplifier>::calc_gradient_with_lpnorm(const
   {
     for (const Vec2i& pc : pixel_coords)
     {
-      ImageT::Color& pixel_color = image->pixel_color(pc.x(), pc.y());
+      ImageT::Color pixel_color = image->pixel_color(pc.x(), pc.y());
       ImageT::Color approx_color = face_color.get_quadratic_color((double)pc.x(), (double)pc.y());
       ImageT::Color color_diff = approx_color - pixel_color;
       ImageT::Color color_diff_p = color_diff.pow(p - 1) * p;
@@ -176,7 +189,7 @@ void CalcErrorOnFace<Simplifier>::operator()(int N, double* x, double* prev_x, d
 
   switch (ps_face_color->type)
   {
-  case FaceColor::Type::Linear:
+  case FaceColor::Type::Linear: case FaceColor::Type::Constant: case FaceColor::Type::Mesh:
   {
     ps_face_color->lc_x.x() = x[0]; ps_face_color->lc_y.x() = x[1]; ps_face_color->cc.x() = x[2];
     ps_face_color->lc_x.y() = x[3]; ps_face_color->lc_y.y() = x[4]; ps_face_color->cc.y() = x[5];

@@ -219,8 +219,8 @@ void CurvedSimplifier::visualize_error()
   {
     for (int x = 0;x < image->width;x++)
     {
-      const ImageT::Color& oc = image->pixel_color(x, y);     // original color
-      const ImageT::Color& ac = out_image->pixel_color(x, y); // approximate color
+      const ImageT::Color oc = image->pixel_color(x, y);     // original color
+      const ImageT::Color ac = out_image->pixel_color(x, y); // approximate color
       double x_diff = fabs(oc.x() - ac.x());
       double y_diff = fabs(oc.y() - ac.y());
       double z_diff = fabs(oc.z() - ac.z());
@@ -262,7 +262,7 @@ void CurvedSimplifier::visualize_error()
     for (int x = 0;x < image->width;x++)
     {
       Vec3d error_color = color_map.MapToColor(error_mat(y, x));
-      ImageT::Color& out_color = out_image->pixel_color(x, y);
+      ImageT::Color out_color = out_image->pixel_color(x, y);
       out_color.x() = error_color.x() * 255.;
       out_color.y() = error_color.y() * 255.;
       out_color.z() = error_color.z() * 255.;

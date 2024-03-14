@@ -7,10 +7,14 @@ namespace GCLF
 namespace ImageTriSimp
 {
 
+// NOTE: TEMPORARY CHANGE TO ALWAYS DO MESH COLORS
 template<typename Simplifier>
 FaceColor CalcColorOnFace<Simplifier>::operator()(FaceHandle fh)
 {
-  return operator()(simplifier->mesh->data(fh).pixels);
+  const std::vector<Vec2i>& pixel_coords = simplifier->mesh->data(fh).pixels;
+
+  return calc_mesh_color(fh);
+  // return operator()(simplifier->mesh->data(fh).pixels);
 }
 
 template<typename Simplifier>
@@ -268,7 +272,7 @@ FaceColor CalcColorOnFace<Simplifier>::calc_constant_color_l1norm(const std::vec
 
   for (const auto& pc : pixel_coords)
   {
-    ImageT::Color& pixel_color = image->pixel_color(pc.x(), pc.y());
+    ImageT::Color pixel_color = image->pixel_color(pc.x(), pc.y());
   #if defined(CHANNEL_0_1)
     double realr = pixel_color.x() * 255;
     double realg = pixel_color.y() * 255;
@@ -325,7 +329,7 @@ FaceColor CalcColorOnFace<Simplifier>::calc_linear_color_l1norm(const std::vecto
   int idx = 0;
   for (const Vec2i& pc : pixel_coords)
   {
-    ImageT::Color& pixel_color = image->pixel_color(pc.x(), pc.y());
+    ImageT::Color pixel_color = image->pixel_color(pc.x(), pc.y());
     A(idx, 0) = pc.x();
     A(idx, 1) = pc.y();
     A(idx, 2) = 1;
@@ -377,7 +381,7 @@ FaceColor CalcColorOnFace<Simplifier>::calc_quadratic_color_l1norm(const std::ve
   int idx = 0;
   for (const Vec2i& pc : pixel_coords)
   {
-    ImageT::Color& pixel_color = image->pixel_color(pc.x(), pc.y());
+    ImageT::Color pixel_color = image->pixel_color(pc.x(), pc.y());
     A(idx, 0) = pc.x() * pc.x();
     A(idx, 1) = pc.x() * pc.y();
     A(idx, 2) = pc.y() * pc.y();
@@ -463,7 +467,7 @@ FaceColor CalcColorOnFace<Simplifier>::calc_linear_color_l2norm(const std::vecto
   double brd = 0, bre = 0, brf = 0, bgd = 0, bge = 0, bgf = 0, bbd = 0, bbe = 0, bbf = 0;
   for (const Vec2i& pc : pixel_coords)
   {
-    ImageT::Color& pixel_color = image->pixel_color(pc.x(), pc.y());
+    ImageT::Color pixel_color = image->pixel_color(pc.x(), pc.y());
     // accumulate A
     xx += pc.x() * pc.x(); xy += pc.x() * pc.y(); yy += pc.y() * pc.y();
     x += pc.x(); y += pc.y();
@@ -519,7 +523,7 @@ FaceColor CalcColorOnFace<Simplifier>::calc_quadratic_color_l2norm(const std::ve
 
   for (const Vec2i& pc : pixel_coords)
   {
-    ImageT::Color& pixel_color = image->pixel_color(pc.x(), pc.y());
+    ImageT::Color pixel_color = image->pixel_color(pc.x(), pc.y());
     // accumulate A
     xnyn[0] = pc.x() * pc.x(); xnyn[1] = pc.x() * pc.y();
     xnyn[2] = pc.y() * pc.y(); xnyn[3] = pc.x();
@@ -574,7 +578,7 @@ FaceColor CalcColorOnFace<Simplifier>::calc_constant_color_l4norm(const std::vec
 
   for (auto pc : pixel_coords)
   {
-    ImageT::Color& pixel_color = image->pixel_color(pc.x(), pc.y());
+    ImageT::Color pixel_color = image->pixel_color(pc.x(), pc.y());
   #if defined(CHANNEL_0_1)
     double realr = pixel_color.x() * 255;
     double realg = pixel_color.y() * 255;
@@ -714,6 +718,62 @@ FaceColor CalcColorOnFace<Simplifier>::calc_quadratic_color_l4norm(const std::ve
 #endif
 
   return face_color;
+}
+
+template<typename Simplifier>
+FaceColor CalcColorOnFace<Simplifier>::calc_mesh_color(FaceHandle fh)
+{
+    FaceColor color;
+    color.type = FaceColor::Type::Mesh;
+    color.mesh_resolution = 1;
+
+
+    ImageT* image = simplifier->image.get();
+    // Obtain vertices of face
+    auto [p0, p1, p2] = face_points(*(simplifier->mesh), fh);
+
+    std::vector<MeshTriangle> meshTriangles = tessellate(p0, p1, p2, color.mesh_resolution);
+
+    for (auto &triangle: meshTriangles)
+    {
+      // Obtain colors of face
+      auto pixel_color_0 = image->pixel_color(triangle.ver0.x(), triangle.ver0.y());
+      auto pixel_color_1 = image->pixel_color(triangle.ver1.x(), triangle.ver1.y());
+      auto pixel_color_2 = image->pixel_color(triangle.ver2.x(), triangle.ver2.y());
+      triangle.setColor(pixel_color_0, pixel_color_1, pixel_color_2);
+    }
+
+    color.triangles = meshTriangles;
+    
+    return color;
+}
+
+template<typename Simplifier>
+std::vector<MeshTriangle> CalcColorOnFace<Simplifier>::tessellate(const Vec3d& p0, const Vec3d& p1, const Vec3d& p2, size_t resolution) {
+    // Base case: if resolution is 0, return a single triangle
+    if (resolution == 0) {
+        return {MeshTriangle(p0, p1, p2)};
+    }
+
+    // Calculate midpoints of edges
+    Vec3d mid01 = (p0 + p1) / 2.0;
+    Vec3d mid12 = (p1 + p2) / 2.0;
+    Vec3d mid20 = (p2 + p0) / 2.0;
+
+    // Recursively tessellate each subtriangle
+    std::vector<MeshTriangle> subtriangles;
+    auto subtriangles_p0 = tessellate(p0, mid01, mid20, resolution - 1);
+    auto subtriangles_p1 = tessellate(p1, mid12, mid01, resolution - 1);
+    auto subtriangles_p2 = tessellate(p2, mid20, mid12, resolution - 1);
+    auto subtriangles_mid = tessellate(mid01, mid12, mid20, resolution - 1);
+
+    // Combine subtriangles
+    subtriangles.insert(subtriangles.end(), subtriangles_p0.begin(), subtriangles_p0.end());
+    subtriangles.insert(subtriangles.end(), subtriangles_p1.begin(), subtriangles_p1.end());
+    subtriangles.insert(subtriangles.end(), subtriangles_p2.begin(), subtriangles_p2.end());
+    subtriangles.insert(subtriangles.end(), subtriangles_mid.begin(), subtriangles_mid.end());
+
+    return subtriangles;
 }
 
 }// namespace ImageTriSimp

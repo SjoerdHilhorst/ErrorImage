@@ -1,4 +1,3 @@
-#pragma once
 #include "LTopoOperations.h"
 
 namespace GCLF

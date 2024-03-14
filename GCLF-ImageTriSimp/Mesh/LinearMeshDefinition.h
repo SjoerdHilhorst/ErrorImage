@@ -29,6 +29,8 @@ struct MeshTraits : public OpenMesh::DefaultTraits
     std::vector<Vec2i> pixels;
     FaceColor color;
     double error;
+
+    size_t resolution;
   };
 
   EdgeTraits {

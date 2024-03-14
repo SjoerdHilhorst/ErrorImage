@@ -1,4 +1,3 @@
-#pragma once
 #include "OperationsRecorder.h"
 
 namespace GCLF

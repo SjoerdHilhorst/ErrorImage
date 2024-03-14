@@ -17,7 +17,7 @@ ImageT MeshToImage<Simplifier>::operator()()
 
 #if defined(CHANNEL_0_1)
   ImageT::Color max_color(1., 1., 1.), min_color(0., 0., 0.);
-#else defined(CHANNEL_0_255)
+#else // defined(CHANNEL_0_255)
   ImageT::Color max_color(255., 255., 255.), min_color(0., 0., 0.);
 #endif
 
@@ -51,6 +51,16 @@ ImageT MeshToImage<Simplifier>::operator()()
       for (const Vec2i& pc : mesh->data(fh).pixels)
       {
         ImageT::Color color = face_color.get_quadratic_color((double)pc.x(), (double)pc.y());
+        color.minimize(max_color); color.maximize(min_color);
+        out_img.pixel_color(pc.x(), pc.y()) = color;
+      }
+    } 
+    break;
+    case FaceColor::Type::Mesh:
+    {
+      for (const Vec2i& pc : mesh->data(fh).pixels)
+      {
+        ImageT::Color color = face_color.get_mesh_color((double)pc.x(), (double)pc.y());
         color.minimize(max_color); color.maximize(min_color);
         out_img.pixel_color(pc.x(), pc.y()) = color;
       }

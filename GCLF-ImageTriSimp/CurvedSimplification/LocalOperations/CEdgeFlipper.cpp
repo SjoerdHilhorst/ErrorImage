@@ -1,4 +1,3 @@
-#pragma once
 #include "CEdgeFlipper.h"
 #include "CurvedSimplification/CurvedSimplifier.h"
 

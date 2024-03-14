@@ -1,5 +1,6 @@
 #pragma once
 #include "CalcErrorOnFace.h"
+#include "Basic/Types.h"
 
 namespace GCLF
 {
@@ -44,6 +45,9 @@ private:
   FaceColor calc_constant_color_l4norm(const std::vector<Vec2i>& pixel_coords);
   FaceColor calc_linear_color_l4norm(const std::vector<Vec2i>& pixel_coords);
   FaceColor calc_quadratic_color_l4norm(const std::vector<Vec2i>& pixel_coords);
+
+  FaceColor calc_mesh_color(FaceHandle fh);
+  std::vector<MeshTriangle> tessellate(const Vec3d& p0, const Vec3d& p1, const Vec3d& p2, size_t resolution);
 };
 
 }// namespace ImageTriSimp

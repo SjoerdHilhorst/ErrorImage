@@ -94,5 +94,20 @@ public:
     return lhs.ver0[split_dim] < rhs.ver0[split_dim];
   }
 };
+
+class MeshTriangle: public Triangle
+{
+  public: 
+    Vec3d color0;
+    Vec3d color1;
+    Vec3d color2;
+  public:
+    MeshTriangle(const Vec3d& p0, const Vec3d& p1, const Vec3d& p2): Triangle(p0, p1, p2) {}
+    
+    inline void setColor(const Vec3d& c0, const Vec3d& c1, const Vec3d& c2)
+    {
+      color0 = c0; color1 = c1; color2 = c2;
+    }
+};
 }// namespace Geometry
 }// namespace GCLF

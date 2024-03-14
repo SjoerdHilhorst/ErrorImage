@@ -176,12 +176,12 @@ void LinearSimplifier::simplify()
   size_t iter = 0;
   while (iter < config.max_simplify_iter)
   {
-    // commented out to only see effect of collapsing edges
+    // NOTE: commented out to only see effect of collapsing edges
     // flip(OptStrategy::EOQB);
     // for (size_t i = 0;i < 3;i++)
     //   relocate(OptStrategy::EOQB);
-    size_t collapsed_size = collapse_with_priority();
-
+    // size_t collapsed_size = collapse_with_priority();
+    size_t collapsed_size = 0;
     if (collapsed_size < config.convergence_collapse_number)
     {
       Logger::user_logger->info("convergence.");
@@ -230,7 +230,7 @@ void LinearSimplifier::update_color_error()
   // Assign pixels to faces.
   Eigen::MatrixXi mask; image->reset_mask(mask);
   behavior.assign_pixels_to_face(mesh.get(), image.get(), mask, std::vector<Vec2i>());
-
+  
   // Calculate colors and errors on faces.
   for (FaceHandle fh : mesh->faces())
   {

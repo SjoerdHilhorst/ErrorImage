@@ -1,12 +1,13 @@
 #pragma once
 #include "Eigen/Core"
-#include "Basic/SimpleTypes.h"
+#include "Basic/Types.h"
+#include "Logger/Logger.h"
 
 namespace GCLF
 {
 namespace ImageTriSimp
 {
-
+using namespace Geometry;
 /* Pixel:
   A pixel is defines as a square with length being 1.
 
@@ -66,21 +67,23 @@ public:
   void resize(int w, int h);
 
   Color& pixel_color(int x, int y) { return pixel_colors(y, x); }
-  const Color& pixel_color(int x, int y) const { return pixel_colors(y, x); }
+  const Color pixel_color(int x, int y) const { return pixel_colors(y, x); }
 
-  Channel& pixel_red(int x, int y) { return pixel_colors(y, x).x(); }
-  Channel& pixel_green(int x, int y) { return pixel_colors(y, x).y(); }
-  Channel& pixel_blue(int x, int y) { return pixel_colors(y, x).z(); }
-  const Channel& pixel_red(int x, int y) const{ return pixel_colors(y, x).x(); }
-  const Channel& pixel_green(int x, int y) const{ return pixel_colors(y, x).y(); }
-  const Channel& pixel_blue(int x, int y) const{ return pixel_colors(y, x).z(); }
+  Channel pixel_red(int x, int y) { return pixel_colors(y, x).x(); }
+  Channel pixel_green(int x, int y) { return pixel_colors(y, x).y(); }
+  Channel pixel_blue(int x, int y) { return pixel_colors(y, x).z(); }
+  const Channel pixel_red(int x, int y) const{ return pixel_colors(y, x).x(); }
+  const Channel pixel_green(int x, int y) const{ return pixel_colors(y, x).y(); }
+  const Channel pixel_blue(int x, int y) const{ return pixel_colors(y, x).z(); }
 
-  static Channel& red_channel(Color& c) { return c.x(); }
-  static Channel& green_channel(Color& c) { return c.y(); }
-  static Channel& blue_channel(Color& c) { return c.z(); }
-  static const Channel& red_channel(const Color& c) { return c.x(); }
-  static const Channel& green_channel(const Color& c) { return c.y(); }
-  static const Channel& blue_channel(const Color& c) { return c.z(); }
+  static Channel red_channel(Color& c) { return c.x(); }
+  static Channel green_channel(Color& c) { return c.y(); }
+  static Channel blue_channel(Color& c) { return c.z(); }
+  static const Channel red_channel(const Color& c) { return c.x(); }
+  static const Channel green_channel(const Color& c) { return c.y(); }
+  static const Channel blue_channel(const Color& c) { return c.z(); }
+
+  
 
   void reset_mask(Eigen::MatrixXi& mask);
 public:
@@ -97,7 +100,8 @@ public:
   {
     Constant,   // f(x,y) = f
     Linear,     // f(x,y) = d*x + e*y + f
-    Quadratic   // f(x,y) = a*x^2 + b*xy + c*y^2 + d*x + e*y + f
+    Quadratic,   // f(x,y) = a*x^2 + b*xy + c*y^2 + d*x + e*y + f
+    Mesh
   }type;
 
   // constant coefficient
@@ -106,11 +110,20 @@ public:
   ImageT::Color lc_x, lc_y;
   // quadratic coefficient for x^2, xy, y^2
   ImageT::Color qc_xx, qc_xy, qc_yy;
+
+  std::vector<MeshTriangle> triangles;
+
+  size_t mesh_resolution;
 public:
   ImageT::Color get_color(double x, double y)const;
   ImageT::Color get_constant_color()const;
   ImageT::Color get_linear_color(double x, double y)const;
   ImageT::Color get_quadratic_color(double x, double y)const;
+
+  ImageT::Color get_mesh_color(double x, double y) const;
+  Vec3d Barycentric(Vec3d p, Vec3d a, Vec3d b, Vec3d c) const;
+  std::pair<size_t, Vec3d> containsPoint(MeshTriangle t, Vec3d p) const;
+  std::pair<int, Vec3d> findContainingTriangle(double x, double y) const;
 };
 
 }// namespace ImageTriSimp

@@ -269,13 +269,13 @@ void QImage2ImageT(const QImage& qimg, ImageT& img)
       QRgb qcolor = qimg.pixel(x, y);
       ImageT::Color color;
     #if defined(CHANNEL_0_1)
-      ImageT::red_channel(color) = qRed(qcolor) / 255.;
-      ImageT::green_channel(color) = qGreen(qcolor) / 255.;
-      ImageT::blue_channel(color) = qBlue(qcolor) / 255.;
+      color.x() = qRed(qcolor) / 255.;
+      color.y() = qGreen(qcolor) / 255.;
+      color.z() = qBlue(qcolor) / 255.;
     #elif defined(CHANNEL_0_255)
-      ImageT::red_channel(color) = qRed(qcolor);
-      ImageT::green_channel(color) = qGreen(qcolor);
-      ImageT::blue_channel(color) = qBlue(qcolor);
+      color.x() = qRed(qcolor);
+      color.y() = qGreen(qcolor);
+      color.z() = qBlue(qcolor);
     #endif
       img.pixel_color(x, y) = color;
     }
